@@ -3,8 +3,8 @@ export default function TaxSlabsModal({ toggleModal }) {
     <>
       <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
         <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg">
-          <h2 className="text-2xl font-bold mb-4">Income Tax Slabs (2024-2025)</h2>
-          <ol className="text-left list-disc pl-5 text-gray-700">
+          <h2 className="text-lg md:text-2xl font-bold underline mb-4">Income Tax Slabs (2024-2025)</h2>
+          <ol className="text-xs md:text-sm text-left list-disc pl-5 text-gray-700">
             <li>
               Where the taxable salary income does not exceed{" "}
               <strong>Rs. 600,000</strong>, the rate of income tax is{" "}
@@ -46,7 +46,7 @@ export default function TaxSlabsModal({ toggleModal }) {
             </li>
           </ol>
           <button
-            className="bg-blue-500 text-white rounded-lg px-4 py-2 mt-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm transition duration-300 ease-in-out hover:bg-blue-600"
+            className="bg-blue-500 text-xs md:text-sm text-white rounded-lg px-4 py-2 mt-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm transition duration-300 ease-in-out hover:bg-blue-600"
             onClick={toggleModal}
           >
             Close
