@@ -5,7 +5,7 @@ import TaxSlabsModal from "./components/TaxSlabsModal";
 import Amounts from "./sections/Amounts";
 
 export default function Home() {
-  const [salary, setSalary] = useState("");  
+  const [salary, setSalary] = useState("");
   const [salaryToDisplay, setSalaryToDisplay] = useState("");
   const [tax, setTax] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,24 +45,24 @@ export default function Home() {
   }
 
   function formatNumberForInputField(num) {
-    return num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-  
+    return num.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   function handleChange(event) {
-    const inputValue = event.target.value.replace(/,/g, ''); // Remove existing commas
+    const inputValue = event.target.value.replace(/,/g, ""); // Remove existing commas
     if (!isNaN(inputValue)) {
       setSalaryToDisplay(formatNumberForInputField(inputValue));
       calculateTax(inputValue);
-      setSalary(inputValue)
+      setSalary(inputValue);
     }
-  };
-  
+  }
+
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-100 to-blue-200 p-4">
-      <h1 className="text-4xl font-bold text-blue-700 mb-6">
+    <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-100 to-blue-200 p-4 text-center">
+      <h1 className="text-2xl md:text-4xl font-bold text-blue-700 mb-6">
         Tax Calculator (2024 - 2025)
       </h1>
-      <div className="bg-white p-6 rounded-lg shadow-lg min-w-[510px]">
+      <div className="bg-white p-6 rounded-lg shadow-lg md:w-[550px] overflow-auto">
         <input
           className="border border-gray-300 rounded-lg px-4 py-2 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm transition duration-300 ease-in-out"
           value={salaryToDisplay}
@@ -73,12 +73,12 @@ export default function Home() {
         />
         <div className="flex justify-between items-center">
           <button
-            className="bg-gray-500 text-white rounded-lg px-6 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 shadow-sm transition duration-300 ease-in-out hover:bg-gray-600"
+            className="bg-gray-500 text-xs md:text-lg text-white rounded-lg px-2 py-1 md:px-6 md:py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 shadow-sm transition duration-300 ease-in-out hover:bg-gray-600"
             onClick={toggleModal}
           >
             View Tax Slabs
           </button>
-          <div className="text-gray-700 text-xl font-semibold">
+          <div className="text-gray-700 text-xs md:text-xl font-semibold">
             Monthly Income:{" "}
             <span className="text-blue-500">
               {formatNumber(parseFloat(salary)) !== "NaN"
@@ -90,10 +90,8 @@ export default function Home() {
         <div className="border-t border-gray-300 my-4"></div>
         <Amounts formatNumber={formatNumber} salary={salary} tax={tax} />
       </div>
-      {isModalOpen && (
-        <TaxSlabsModal toggleModal={toggleModal} />
-      )}
-      <footer className="mt-6 text-gray-700">
+      {isModalOpen && <TaxSlabsModal toggleModal={toggleModal} />}
+      <footer className="mt-6 text-gray-700 text-xs md:text-lg">
         <p>
           Instructed by <strong>Mr. Muhammad Jamshaid</strong> and Developed by{" "}
           <strong>Ahsan Javed</strong>
